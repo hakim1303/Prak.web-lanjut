@@ -1,0 +1,55 @@
+
+config.php
+turun
+acara.scan.php
+pemeliharaan.php
+rute.php
+rute.scan.php
+jadwal- *
+layanan.json
+
+
+namespace  Tes \ Fitur ;
+
+// gunakan Illuminate\Foundation\Testing\RefreshDatabase;
+gunakan  Tes \ TestCase ;
+
+kelas  ContohTest  memperluas  TestCase
+{
+    /**
+     * Contoh tes dasar.
+     */
+     fungsi  publik test_the_application_returns_a_successful_response (): batal
+    {
+        $ respon = $ ini -> dapatkan ( '/' );
+
+        $ respon -> menegaskanStatus ( 200 );
+    }
+}
+
+
+ Tes namespace ;
+
+gunakan  Illuminate \ Foundation \ Testing \ TestCase  sebagai  BaseTestCase ;
+
+ kelas  abstrak TestCase  memperluas  BaseTestCase
+{
+    gunakan  CreatesApplication ;
+}
+
+
+namespace  Tes \ Unit ;
+
+gunakan  PHPUnit \ Framework \ TestCase ;
+
+kelas  ContohTest  memperluas  TestCase
+{
+    /**
+     * Contoh tes dasar.
+     */
+     fungsi  publik test_that_true_is_true (): batal
+    {
+        $ ini -> tegaskanBenar ( benar );
+    }
+}
+ 11 perubahan: 11 penambahan & 0 penghapusan11 
