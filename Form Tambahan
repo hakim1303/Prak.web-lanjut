@@ -1,0 +1,92 @@
+
+gunakan  Illuminate \ Database \ Migrasi \ Migrasi ;
+gunakan  Illuminate \ Database \ Schema \ Blueprint ;
+gunakan  Illuminate \ Support \ Facades \ Schema ;
+
+kembalikan  kelas baru  memperluas Migrasi  
+{
+    /**
+     * Jalankan migrasi.
+     */
+     fungsi  publik naik (): batal
+    {
+        Skema :: buat ( 'password_reset_tokens' , fungsi ( Cetak Biru  $ tabel ) {
+            $ tabel -> string ( 'email' )-> utama ();
+            $ tabel -> string ( 'token' );
+            $ tabel -> stempel waktu ( 'dibuat_at' )-> nullable ();
+        });
+    }
+
+    /**
+     * Membalikkan migrasi.
+     */
+     fungsi  publik turun (): batal
+    {
+        Skema :: dropIfExists ( 'password_reset_tokens' );
+    }
+};
+
+
+gunakan  Illuminate \ Database \ Migrasi \ Migrasi ;
+gunakan  Illuminate \ Database \ Schema \ Blueprint ;
+gunakan  Illuminate \ Support \ Facades \ Schema ;
+
+kembalikan  kelas baru  memperluas Migrasi  
+{
+    /**
+     * Jalankan migrasi.
+     */
+     fungsi  publik naik (): batal
+    {
+        Skema :: buat ( 'failed_jobs' , fungsi ( Cetak Biru  $ tabel ) {
+            $ tabel -> id ();
+            $ tabel -> string ( 'uuid' )-> unik ();
+            $ tabel -> teks ( 'koneksi' );
+            $ tabel -> teks ( 'antrian' );
+            $ tabel -> longText ( 'payload' );
+            $ tabel -> longText ( 'pengecualian' );
+            $ tabel -> stempel waktu ( 'failed_at' )-> useCurrent ();
+        });
+    }
+
+    /**
+     * Membalikkan migrasi.
+     */
+     fungsi  publik turun (): batal
+    {
+        Skema :: dropIfExists ( 'failed_jobs' );
+    }
+};
+
+
+gunakan  Illuminate \ Database \ Migrasi \ Migrasi ;
+gunakan  Illuminate \ Database \ Schema \ Blueprint ;
+gunakan  Illuminate \ Support \ Facades \ Schema ;
+
+kembalikan  kelas baru  memperluas Migrasi  
+{
+    /**
+     * Jalankan migrasi.
+     */
+     fungsi  publik naik (): batal
+    {
+        Skema :: buat ( 'personal_access_tokens' , fungsi ( Cetak Biru  $ tabel ) {
+            $ tabel -> id ();
+            $ tabel -> morphs ( 'tokenable' );
+            $ tabel -> string ( 'nama' );
+            $ tabel -> string ( 'token' , 64 )-> unik ();
+            $ tabel -> teks ( 'kemampuan' )-> nullable ();
+            $ tabel -> stempel waktu ( 'last_used_at' )-> nullable ();
+            $ tabel -> stempel waktu ( 'kedaluwarsa_at' )-> nullable ();
+            $ tabel -> cap waktu ();
+        });
+    }
+
+    /**
+     * Membalikkan migrasi.
+     */
+     fungsi  publik turun (): batal
+    {
+        Skema :: dropIfExists ( 'personal_access_tokens' );
+    }
+};
