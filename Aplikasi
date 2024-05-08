@@ -1,0 +1,188 @@
+<?php
+
+gunakan  Illuminate \ Support \ Facades \ Facade ;
+gunakan  Illuminate \ Support \ ServiceProvider ;
+
+kembali [
+
+    /*
+    |------------------------------------------------- -------------------------
+    | nama aplikasi
+    |------------------------------------------------- -------------------------
+    |
+    | Nilai ini adalah nama aplikasi Anda. Nilai ini digunakan ketika
+    | framework perlu menempatkan nama aplikasi di notifikasi atau
+    | lokasi lain mana pun seperti yang disyaratkan oleh aplikasi atau paketnya.
+    |
+    */
+
+    'nama' => env( 'APP_NAME' , 'Laravel' ),
+
+    /*
+    |------------------------------------------------- -------------------------
+    | Lingkungan Aplikasi
+    |------------------------------------------------- -------------------------
+    |
+    | Nilai ini menentukan "lingkungan" aplikasi Anda saat ini
+    | berjalan masuk. Ini mungkin menentukan bagaimana Anda memilih untuk mengkonfigurasi berbagai
+    | layanan yang digunakan aplikasi. Setel ini di file ".env" Anda.
+    |
+    */
+
+    'env' => env( 'APP_ENV' , 'produksi' ),
+
+    /*
+    |------------------------------------------------- -------------------------
+    | Mode Debug Aplikasi
+    |------------------------------------------------- -------------------------
+    |
+    | Saat aplikasi Anda dalam mode debug, pesan kesalahan terperinci dengan
+    | jejak tumpukan akan ditampilkan pada setiap kesalahan yang terjadi di dalam file Anda
+    | aplikasi. Jika dinonaktifkan, halaman kesalahan umum sederhana akan ditampilkan.
+    |
+    */
+
+    'debug' => ( bool ) env( 'APP_DEBUG' , salah ),
+
+    /*
+    |------------------------------------------------- -------------------------
+    | URL Aplikasi
+    |------------------------------------------------- -------------------------
+    |
+    | URL ini digunakan oleh konsol untuk menghasilkan URL dengan benar saat digunakan
+    | alat baris perintah Artisan. Anda harus mengatur ini ke root
+    | aplikasi Anda sehingga digunakan saat menjalankan tugas Artisan.
+    |
+    */
+
+    'url' => env( 'APP_URL' , 'http://localhost' ),
+
+    'asset_url' => env( 'ASSET_URL' ),
+
+    /*
+    |------------------------------------------------- -------------------------
+    | Zona Waktu Aplikasi
+    |------------------------------------------------- -------------------------
+    |
+    | Di sini Anda dapat menentukan zona waktu default untuk aplikasi Anda
+    | akan digunakan oleh fungsi tanggal dan tanggal-waktu PHP. Kami telah pergi
+    | ke depan dan setel ini ke default yang masuk akal untuk Anda.
+    |
+    */
+
+    'zona waktu' => 'UTC' ,
+
+    /*
+    |------------------------------------------------- -------------------------
+    | Konfigurasi Lokal Aplikasi
+    |------------------------------------------------- -------------------------
+    |
+    | Lokal aplikasi menentukan lokal default yang akan digunakan
+    | oleh penyedia layanan terjemahan. Anda bebas menentukan nilai ini
+    | ke salah satu lokal yang akan didukung oleh aplikasi.
+    |
+    */
+
+    'lokal' => 'en' ,
+
+    /*
+    |------------------------------------------------- -------------------------
+    | Lokal Penggantian Aplikasi
+    |------------------------------------------------- -------------------------
+    |
+    | Lokal cadangan menentukan lokal yang akan digunakan saat ini
+    | tidak tersedia. Anda dapat mengubah nilainya agar sesuai dengan salah satu
+    | folder bahasa yang disediakan melalui aplikasi Anda.
+    |
+    */
+
+    'fallback_locale' => 'id' ,
+
+    /*
+    |------------------------------------------------- -------------------------
+    | Lokal Pemalsu
+    |------------------------------------------------- -------------------------
+    |
+    | Lokal ini akan digunakan oleh perpustakaan Faker PHP saat membuat palsu
+    | data untuk benih basis data Anda. Misalnya, ini akan digunakan untuk mendapatkan
+    | nomor telepon lokal, informasi alamat jalan dan banyak lagi.
+    |
+    */
+
+    'faker_locale' => 'en_US' ,
+
+    /*
+    |------------------------------------------------- -------------------------
+    | Kunci enkripsi
+    |------------------------------------------------- -------------------------
+    |
+    | Kunci ini digunakan oleh layanan enkripsi Illuminate dan harus disetel
+    | ke string acak, 32 karakter, jika tidak, string terenkripsi ini
+    | tidak akan aman. Silakan lakukan ini sebelum menyebarkan aplikasi!
+    |
+    */
+
+    'kunci' => env( 'APP_KEY' ),
+
+    'sandi' => 'AES-256-CBC' ,
+
+    /*
+    |------------------------------------------------- -------------------------
+    | Pengemudi Mode Pemeliharaan
+    |------------------------------------------------- -------------------------
+    |
+    | Opsi konfigurasi ini menentukan driver yang digunakan untuk menentukan dan
+    | mengelola status "mode pemeliharaan" Laravel. Pengemudi "cache" akan melakukannya
+    | memungkinkan mode pemeliharaan dikontrol di beberapa mesin.
+    |
+    | Driver yang didukung: "file", "cache"
+    |
+    */
+
+    'pemeliharaan' => [
+        'pengemudi' => 'berkas' ,
+        // 'toko' => 'redis',
+    ],
+
+    /*
+    |------------------------------------------------- -------------------------
+    | Penyedia Layanan yang Dimuat Otomatis
+    |------------------------------------------------- -------------------------
+    |
+    | Penyedia layanan yang terdaftar di sini akan dimuat secara otomatis di
+    | permintaan ke aplikasi Anda. Jangan ragu untuk menambahkan layanan Anda sendiri
+    | array ini untuk memberikan fungsionalitas yang diperluas ke aplikasi Anda.
+    |
+    */
+
+    'penyedia' => ServiceProvider :: defaultProviders ()-> gabung ([
+        /*
+         * Penyedia Layanan Paket...
+         */
+
+        /*
+         * Penyedia Layanan Aplikasi...
+         */
+        Aplikasi \ Penyedia \ AppServiceProvider ::kelas,
+        Aplikasi \ Penyedia \ AuthServiceProvider ::kelas,
+        // App\Providers\BroadcastServiceProvider::kelas,
+        Aplikasi \ Penyedia \ EventServiceProvider ::kelas,
+        Aplikasi \ Penyedia \ RouteServiceProvider ::kelas,
+    ])-> ke Array (),
+
+    /*
+    |------------------------------------------------- -------------------------
+    | Alias ​​Kelas
+    |------------------------------------------------- -------------------------
+    |
+    | Array alias kelas ini akan didaftarkan saat aplikasi ini
+    | dimulai. Namun, jangan ragu untuk mendaftar sebanyak yang Anda inginkan
+    | aliasnya "malas" dimuat sehingga tidak menghambat kinerja.
+    |
+    */
+
+    'alias' => Fasad :: defaultAliases ()-> gabung ([
+        // 'Contoh' => Aplikasi\Fasad\Contoh::kelas,
+    ])-> ke Array (),
+
+];
